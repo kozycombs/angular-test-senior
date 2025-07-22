@@ -1,0 +1,17 @@
+@if(financeQuote) {
+  <div class="row mb-4 px-3">
+    <div class="col ps-0">
+      <p class="text-secondary mb-2">Finance representative example</p>
+      @for(displayField of displayFields; track displayField.label) {
+        <div class="row align-items-center justify-content-between border-bottom mb-2 mx-1">
+          <div class="col-auto py-2 ps-0">{{displayField.label}}</div>
+          @if(displayField.currencyType) {
+            <div class="col-auto py-2 pe-0">{{displayField.value | currency: currency}}</div>
+          } @else {
+            <div class="col-auto py-2 pe-0">{{displayField.value}}</div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+}

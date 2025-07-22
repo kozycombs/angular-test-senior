@@ -1,0 +1,24 @@
+<div class="vehicle-item p-4 mb-4 border rounded">
+  <div class="row mb-0 mb-sm-3 justify-content-between align-items-center">
+    <div class="col-auto">
+      <h2 class="mb-3 mb-sm-0">{{vehicle?.make}} {{vehicle?.model}}</h2>
+    </div>
+    <div class="col-auto">
+      <p class="price mb-3 mb-sm-0 fs-5">{{vehicle?.price | currency: currency}}</p>
+    </div>
+  </div>
+  <div class="pill-group d-flex flex-row">
+    <p class="pill">
+      <span>Year:</span>&nbsp;
+      <span>{{vehicle?.year}}</span>
+    </p>
+    <p class="pill">
+      <span>Mileage:</span>&nbsp;
+      <span>{{vehicle?.mileage}}</span>
+    </p>
+    <p class="pill">
+      <span>Colour:</span>&nbsp;
+      <span>{{vehicle?.colour}}</span>
+    </p>
+  </div>
+</div>

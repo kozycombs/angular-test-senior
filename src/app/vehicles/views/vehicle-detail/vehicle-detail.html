@@ -1,0 +1,42 @@
+@if(loading) {
+  <app-spinner />
+} @else {
+  @if (!vehicle) {
+    <page-not-found message="Oops, vehicle not found!" />
+  } @else {
+    <div class="vehicle-detail">
+      <div class="row mb-3">
+        <div class="col-12">
+          <button type="button" class="btn btn-link px-0" (click)="onGoBack()">Back to all vehicles</button>
+        </div>
+      </div>
+      <div class="row gx-5">
+        <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+          <img src="../../../../assets/no-image.jpg" class="w-100 rounded" alt="No image" />
+        </div>
+        <div class="col-12 col-lg-6">
+          <h1>{{vehicle.make}}&nbsp;&nbsp;{{vehicle.model}}</h1>
+          <div class="pill-group d-flex flex-row mt-3">
+            <p class="pill">
+              <span>Year:</span>&nbsp;
+              <span>{{vehicle.year}}</span>
+            </p>
+            <p class="pill">
+              <span>Mileage:</span>&nbsp;
+              <span>{{vehicle.mileage}}</span>
+            </p>
+            <p class="pill">
+              <span>Colour:</span>&nbsp;
+              <span>{{vehicle.colour}}</span>
+            </p>
+          </div>
+          <h2 class="mt-4 mb-3">{{vehicle.price | currency: currency}}</h2>
+          <a routerLink="/vehicle-finance/{{vehicle.id}}" class="fs-4 fw-medium mb-4">
+            {{financeQuote?.monthlyPayment| currency: currency}}
+            <span class="fs-5">per month (HP)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  }
+}
