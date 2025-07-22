@@ -15,10 +15,11 @@ import { FinanceDetail } from '../../components/finance-detail/finance-detail';
 import { FinanceCalculator } from '../../components/finance-calculator/finance-calculator';
 import { CurrencyPipe, Location } from '@angular/common';
 import { Spinner } from '../../../components/spinner/spinner';
+import { NotFound } from '../../../not-found/not-found';
 
 @Component({
   selector: 'app-vehicle-finance',
-  imports: [CurrencyPipe, FinanceDetail, FinanceCalculator, Spinner],
+  imports: [CurrencyPipe, FinanceDetail, FinanceCalculator, Spinner, NotFound],
   templateUrl: './vehicle-finance.html',
   styleUrl: './vehicle-finance.scss',
 })

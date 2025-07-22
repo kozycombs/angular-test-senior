@@ -7,10 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { Sort } from '../../enums/sort';
 import { Subscription } from 'rxjs';
 import { Spinner } from '../../../components/spinner/spinner';
+import { NotFound } from '../../../not-found/not-found';
 
 @Component({
   selector: 'app-vehicle-list',
-  imports: [VehicleItem, RouterLink, FormsModule, Spinner],
+  imports: [VehicleItem, RouterLink, FormsModule, Spinner, NotFound],
   templateUrl: './vehicle-list.html',
   styleUrl: './vehicle-list.scss',
 })
@@ -52,7 +53,7 @@ export class VehicleList implements OnInit, OnDestroy {
   getVehicles(sortBy: string): void {
     this.loading = true;
     this.subscriptions.push(
-      this.vehicleService.sortVehicles(sortBy).subscribe((response) => {
+      this.vehicleService.getVehicles(sortBy).subscribe((response) => {
         this.vehicles = response;
         this.loading = false;
       })

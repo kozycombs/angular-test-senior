@@ -8,18 +8,14 @@ import { Sort } from '../enums/sort';
   providedIn: 'root',
 })
 export class VehicleService {
-  getVehicles(): Observable<Vehicle[]> {
-    return of(vehiclesData).pipe(delay(1000));
+  getVehicles(sortBy: string): Observable<Vehicle[]> {
+    const sortedVehicles = this.handleVehiclesSort(sortBy, vehiclesData);
+    return of(sortedVehicles).pipe(delay(500));
   }
 
   getVehicle(id: string): Observable<Vehicle | null> {
     const vehicle = this.findVehicleById(id, vehiclesData);
     return of(vehicle).pipe(delay(500));
-  }
-
-  sortVehicles(sortBy: string): Observable<Vehicle[]> {
-    const sortedVehicles = this.handleVehiclesSort(sortBy, vehiclesData);
-    return of(sortedVehicles).pipe(delay(500));
   }
 
   private findVehicleById(id: string, vehicles: Vehicle[]): Vehicle | null {
